@@ -1,3 +1,12 @@
+# Introduction #
+Forked from https://github.com/javascript-obfuscator/react-native-obfuscating-transformer
+As of 2020-07-09, the original package does not appear to be actively maintained.
+
+# 2020-07-09 Changes #
+- Added dependency metro-react-native-babel-transformer
+- Updated javascript-obfuscator dependency from ^0.13.0 to 1.3.0
+- When emitting obfuscated files, the obfuscated code is written instead of the original
+
 # react-native-obfuscating-transformer
 
 Obfuscate selected source files when building for React Native.
