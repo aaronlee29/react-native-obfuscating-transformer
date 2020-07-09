@@ -4,7 +4,6 @@ I forked this so I could apply needed fixes/enhancements and use it for my proje
 Many thanks to the original authors and maintainers.
 
 # 2020-07-09 Changes #
-- Added dependency metro-react-native-babel-transformer
 - Updated javascript-obfuscator dependency from ^0.13.0 to 1.3.0
 - Fixed emitting of obfuscated files (previously, non-obfuscated code would be written)
 - Added option to delete emitted files (use unlinkObfuscatedFiles=true)
@@ -146,6 +145,20 @@ Iff true, emits the obfuscated versions of files alongside their originals, for 
 ### `enableInDevelopment: boolean`
 
 Iff true, enables obfuscation in development mode.
+
+#### Default value: `false`
+
+### `enableOnlyForPlatform: string | string[]`
+
+Enables obfuscation only for the specified platform.
+If falsy, enables obfuscation for all platforms.
+For example `['ios']` enables obfuscation only for IOS.
+
+#### Default value: `false`
+
+### `unlinkObfuscatedFiles: boolean`
+
+If true, and emitObfuscatedFiles is false, unlinks all existing emitted files.
 
 #### Default value: `false`
 
