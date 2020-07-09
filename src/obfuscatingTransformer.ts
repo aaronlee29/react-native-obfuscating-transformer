@@ -87,16 +87,7 @@ export function obfuscatingTransformer({
           }
         }
 
-        if (otherOptions.emitObfuscatedFiles) {
-          const emitDir = path.dirname(props.filename)
-          const filename = extendFileExtension(
-            path.basename(props.filename),
-            "obfuscated",
-          )
-          fs.writeFileSync(path.join(emitDir, filename), code)
-        }
-
-        return maybeTransformMetroResult(
+        var transform = maybeTransformMetroResult(
           result,
           obfuscateCodePreservingSourceMap(
             code,
@@ -106,8 +97,21 @@ export function obfuscatingTransformer({
             obfuscatorOptions,
           ),
         )
-      }
-
+        if(otherOptions.emitObfuscatedFiles || otherOptions.unlinkObfuscatedFiles) { 
+          var emitDir = path.dirname(props.filename)
+          var filename = extendFileExtension(
+              path.basename(props.filename),
+              "obfuscated")
+          var emitPath = path.join(emitDir, filename);
+            
+          if (otherOptions.emitObfuscatedFiles) {
+            fs.writeFileSync(emitPath, JSON.stringify(transform))
+          } else {
+            if (otherOptions.unlinkObfuscatedFiles) {
+              fs.unlinkSync(emitPath)
+            }    
+          }
+        }
       return result
     },
 
