@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "Obfuscating transformer for react-native",
   "main": "dist/index.js",
-  "repository": "https://github.com/ds300/react-native-obfuscating-transformer",
-  "author": "David Sheldrick",
+  "repository": "https://github.com/aaronlee29/react-native-obfuscating-transformer",
+  "author": "Aaron Lee (original author: David Sheldrick)",
   "license": "MIT",
   "dependencies": {
     "@types/app-root-path": "^1.2.4",
@@ -27,7 +27,8 @@
   "scripts": {
     "build": "rm -rf dist && tsc",
     "precommit": "tsc && lint-staged",
-    "test": "jest"
+    "test": "jest",
+    "gitPush": "git push -f origin master"
   },
   "typings": "dist/index.d.ts",
   "lint-staged": {
